@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#Danning Yu
+#305087992
+
+grep '.*</td>' | \
+sed 's/<[^>]*>//g' | \
+tr "\`" "\'" | \
+tr "A-Z" "a-z" | \
+sed 's/^ *//g' | \
+sed 's/?//g' | \
+grep -E "^[pk'mnwlhaeiou ]+$" | \
+sed 's/ /\n/g' | \
+grep -E -v '^$' | \
+sort -u

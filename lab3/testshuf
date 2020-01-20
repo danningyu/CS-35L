@@ -1,0 +1,105 @@
+#!/bin/bash
+
+echo 'TEST 1'
+echo -e '1\n2\n3' | shuf
+echo 'Exit code:' $?
+echo 'TEST 2'
+shuf -i 10-20
+echo 'Exit code:' $?
+
+echo 'TEST 3'
+shuf -i 10-20 -n 5
+echo 'Exit code:' $?
+
+echo 'TEST 4'
+shuf -i 10-20 -n 15
+echo 'Exit code:' $?
+
+echo 'TEST 5'
+shuf -i
+echo 'Exit code:' $?
+
+echo 'TEST 6'
+shuf -i 2-0
+echo 'Exit code:' $?
+
+echo 'TEST 7'
+shuf -i 2-2
+echo 'Exit code:' $?
+
+echo 'TEST 8'
+shuf -i 3-2
+echo 'Exit code:' $?
+
+echo 'TEST 9'
+shuf correct13.txt -n 5
+echo 'Exit code:' $?
+
+echo 'TEST 10'
+shuf correct13.txt -n 0
+echo 'Exit code:' $?
+
+echo 'TEST 11'
+shuf correct13.txt -n 3jklj
+echo 'Exit code:' $?
+
+echo 'TEST 12'
+shuf correct13.txt -i 2-4 -n 2
+echo 'Exit code:' $?
+
+echo 'TEST 13'
+shuf correct13.txt -n -1
+echo 'Exit code:' $?
+
+echo 'TEST 14'
+shuf correct13.txt -n 5 -r
+echo 'Exit code:' $?
+
+echo 'TEST 15'
+shuf correct13.txt -n -1 -r
+echo 'Exit code:' $?
+
+echo 'TEST 16'
+shuf correct13.txt --input-range 10-15
+echo 'Exit code:' $?
+
+echo 'TEST 17'
+shuf correct13.txt --head-count 2
+echo 'Exit code:' $?
+
+echo 'TEST 18'
+shuf --head-count 2 correct13.txt
+echo 'Exit code:' $?
+
+echo 'TEST 19'
+shuf --repeat --head-count 4 correct13.txt
+echo 'Exit code:' $?
+
+echo 'TEST 20'
+echo -e 'a\nb\nc\ndd' | shuf -
+echo 'Exit code:' $?
+
+echo 'TEST 21'
+echo -e 'a\nb\nc\ndd' | shuf - -n 5
+echo 'Exit code:' $?
+
+echo 'TEST 22'
+echo -e 'a\nb\nc\ndd' | shuf - -i 1-10
+echo 'Exit code:' $?
+
+echo 'TEST 23'
+shuf nonexistent.txt -r
+echo 'Exit code:' $?
+
+echo 'TEST 24'
+shuf -n 8 nonexistent.txt
+echo 'Exit code:' $?
+
+# echo 'TEST 19'
+# echo 'TEST 19'
+
+# echo 'TEST 19'
+# echo 'TEST 19'
+# echo 'TEST 19'
+
+

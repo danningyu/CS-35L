@@ -1,0 +1,280 @@
+Danning Yu
+305087992
+Lab:
+
+1. man -k
+2. /usr/local/cs/bin/mv
+   /usr/local/cs/bin/cp
+   commands used:
+   which mv
+   which cp
+3. ar: allows for creation and manipulation of archives, as well as extracting from them.
+   tr: used to translating or deleting letters, such as from lowercase to uppercase.
+   pr: formats files by adding pages and columns to make it look better when printed
+   find /usr/bin -name "?"r
+4. /usr/bin/emacs-24.3
+   commands used:
+   readlink -f /usr/bin/emacs
+5. /usr/bin/gcc: 4.8.5
+   gcc: 9.2.0
+   commands used:
+   gcc --version
+   /usr/bin/gcc --version
+   Different because gcc is actually in /usr/local/cs/bin, so it is distinct from /usr/bin/gcc.
+
+6. chmod u+sx,o-w: u+sx part means to set the user ID for the user (temporarily giving it same permissions as superuser), which will allow execute permissions to be added. The o-w part means to remove write permissions from other users.
+   Commands used:
+   man chmod
+7. find /usr/local/cs -type d -mtime -28
+FIRST 5 plus # of directories
+Files found:
+/usr/local/cs
+/usr/local/cs/src/bison
+/usr/local/cs/src/bison/RCS
+/usr/local/cs/src/gnuplot
+/usr/local/cs/src/gnuplot/RCS
+/usr/local/cs/src/coreutils
+/usr/local/cs/src/coreutils/RCS
+/usr/local/cs/src/emacs
+/usr/local/cs/src/emacs/RCS
+/usr/local/cs/src/gdb
+/usr/local/cs/src/gdb/RCS
+/usr/local/cs/src/gprolog
+/usr/local/cs/src/gprolog/RCS
+/usr/local/cs/src/grep
+/usr/local/cs/src/grep/RCS
+/usr/local/cs/src/ocaml
+/usr/local/cs/src/ocaml/RCS
+/usr/local/cs/share/info
+/usr/local/cs/share/man/man1
+/usr/local/cs/share/man/man5
+/usr/local/cs/share/man/man3
+/usr/local/cs/bin
+/usr/local/cs/bin/.del
+/usr/local/cs/bison-3.4.2
+/usr/local/cs/bison-3.4.2/share
+/usr/local/cs/bison-3.4.2/share/locale
+/usr/local/cs/bison-3.4.2/share/locale/bg
+/usr/local/cs/bison-3.4.2/share/locale/bg/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ca
+/usr/local/cs/bison-3.4.2/share/locale/ca/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/da
+/usr/local/cs/bison-3.4.2/share/locale/da/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/de
+/usr/local/cs/bison-3.4.2/share/locale/de/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/el
+/usr/local/cs/bison-3.4.2/share/locale/el/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/eo
+/usr/local/cs/bison-3.4.2/share/locale/eo/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/es
+/usr/local/cs/bison-3.4.2/share/locale/es/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/et
+/usr/local/cs/bison-3.4.2/share/locale/et/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/fi
+/usr/local/cs/bison-3.4.2/share/locale/fi/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/fr
+/usr/local/cs/bison-3.4.2/share/locale/fr/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ga
+/usr/local/cs/bison-3.4.2/share/locale/ga/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/hr
+/usr/local/cs/bison-3.4.2/share/locale/hr/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/id
+/usr/local/cs/bison-3.4.2/share/locale/id/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/it
+/usr/local/cs/bison-3.4.2/share/locale/it/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ja
+/usr/local/cs/bison-3.4.2/share/locale/ja/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ms
+/usr/local/cs/bison-3.4.2/share/locale/ms/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/nb
+/usr/local/cs/bison-3.4.2/share/locale/nb/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/nl
+/usr/local/cs/bison-3.4.2/share/locale/nl/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/pl
+/usr/local/cs/bison-3.4.2/share/locale/pl/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/pt
+/usr/local/cs/bison-3.4.2/share/locale/pt/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/pt_BR
+/usr/local/cs/bison-3.4.2/share/locale/pt_BR/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ro
+/usr/local/cs/bison-3.4.2/share/locale/ro/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ru
+/usr/local/cs/bison-3.4.2/share/locale/ru/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/sr
+/usr/local/cs/bison-3.4.2/share/locale/sr/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/sv
+/usr/local/cs/bison-3.4.2/share/locale/sv/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/tr
+/usr/local/cs/bison-3.4.2/share/locale/tr/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/uk
+/usr/local/cs/bison-3.4.2/share/locale/uk/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/vi
+/usr/local/cs/bison-3.4.2/share/locale/vi/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/zh_CN
+/usr/local/cs/bison-3.4.2/share/locale/zh_CN/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/zh_TW
+/usr/local/cs/bison-3.4.2/share/locale/zh_TW/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ast
+/usr/local/cs/bison-3.4.2/share/locale/ast/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/gl
+/usr/local/cs/bison-3.4.2/share/locale/gl/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/hu
+/usr/local/cs/bison-3.4.2/share/locale/hu/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ia
+/usr/local/cs/bison-3.4.2/share/locale/ia/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ky
+/usr/local/cs/bison-3.4.2/share/locale/ky/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/lt
+/usr/local/cs/bison-3.4.2/share/locale/lt/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/lv
+/usr/local/cs/bison-3.4.2/share/locale/lv/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/sl
+/usr/local/cs/bison-3.4.2/share/locale/sl/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/sq
+/usr/local/cs/bison-3.4.2/share/locale/sq/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/th
+/usr/local/cs/bison-3.4.2/share/locale/th/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/af
+/usr/local/cs/bison-3.4.2/share/locale/af/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/be
+/usr/local/cs/bison-3.4.2/share/locale/be/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/cs
+/usr/local/cs/bison-3.4.2/share/locale/cs/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/eu
+/usr/local/cs/bison-3.4.2/share/locale/eu/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/ko
+/usr/local/cs/bison-3.4.2/share/locale/ko/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/rw
+/usr/local/cs/bison-3.4.2/share/locale/rw/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/locale/sk
+/usr/local/cs/bison-3.4.2/share/locale/sk/LC_MESSAGES
+/usr/local/cs/bison-3.4.2/share/aclocal
+/usr/local/cs/bison-3.4.2/share/doc
+/usr/local/cs/bison-3.4.2/share/doc/bison
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c++
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c++/calc++
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c/calc
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c/lexcalc
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c/mfcalc
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c/reccalc
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/c/rpcalc
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/d
+/usr/local/cs/bison-3.4.2/share/doc/bison/examples/java
+/usr/local/cs/bison-3.4.2/share/bison
+/usr/local/cs/bison-3.4.2/share/bison/m4sugar
+/usr/local/cs/bison-3.4.2/share/bison/skeletons
+/usr/local/cs/bison-3.4.2/share/bison/xslt
+/usr/local/cs/bison-3.4.2/share/man
+/usr/local/cs/bison-3.4.2/share/man/man1
+/usr/local/cs/bison-3.4.2/share/info
+/usr/local/cs/bison-3.4.2/bin
+/usr/local/cs/bison-3.4.2/lib
+/usr/local/cs/.del
+/usr/local/cs/.del/bison-3.2.3
+/usr/local/cs/gdb-8.3.1
+/usr/local/cs/gdb-8.3.1/share
+/usr/local/cs/gdb-8.3.1/share/info
+/usr/local/cs/gdb-8.3.1/share/gdb
+/usr/local/cs/gdb-8.3.1/share/gdb/python
+/usr/local/cs/gdb-8.3.1/share/gdb/python/gdb
+/usr/local/cs/gdb-8.3.1/share/gdb/python/gdb/command
+/usr/local/cs/gdb-8.3.1/share/gdb/python/gdb/function
+/usr/local/cs/gdb-8.3.1/share/gdb/python/gdb/printer
+/usr/local/cs/gdb-8.3.1/share/gdb/syscalls
+/usr/local/cs/gdb-8.3.1/share/gdb/system-gdbinit
+/usr/local/cs/gdb-8.3.1/share/man
+/usr/local/cs/gdb-8.3.1/share/man/man5
+/usr/local/cs/gdb-8.3.1/share/man/man1
+/usr/local/cs/gdb-8.3.1/include
+/usr/local/cs/gdb-8.3.1/include/gdb
+/usr/local/cs/gdb-8.3.1/lib
+/usr/local/cs/gdb-8.3.1/bin
+/usr/local/cs/ocaml-4.09.0
+/usr/local/cs/ocaml-4.09.0/bin
+/usr/local/cs/ocaml-4.09.0/lib
+/usr/local/cs/ocaml-4.09.0/lib/ocaml
+/usr/local/cs/ocaml-4.09.0/lib/ocaml/stublibs
+/usr/local/cs/ocaml-4.09.0/lib/ocaml/compiler-libs
+/usr/local/cs/ocaml-4.09.0/lib/ocaml/caml
+/usr/local/cs/ocaml-4.09.0/lib/ocaml/threads
+/usr/local/cs/ocaml-4.09.0/lib/ocaml/ocamldoc
+/usr/local/cs/ocaml-4.09.0/man
+/usr/local/cs/ocaml-4.09.0/man/man1
+/usr/local/cs/ocaml-4.09.0/man/man3
+
+8. 303
+   commands used:
+   which find
+   cd /usr/bin
+   man grep
+   man wc
+   ls -la | grep "\->" | wc -l
+   Note: done on lnxsrv09
+9. librom1394.so.0.3.0
+   commands used:
+   ls /usr/lib64 -lta
+10. It gets its data from /usr/lib/locale. Found using man 7 locale.
+use man -k locale and find the right locale file
+11. downcase-dwim
+    downcase-region
+    downcase-word
+    emacs commands used:
+    emacs
+    C-h a downcase
+12. C-M-r does a backwards regexp incremental search
+    C-M-s does a forwards incremental regexp search
+    C-M-t transposes two expressions, which means it moves one expression ahead of another
+    C-M-u moves up one level of parentheses
+    C-M-v scrolls the next window down in emacs if one exists
+    emacs commands used:
+    C-h k C-m-r
+    C-h k C-m-s
+    C-h k C-m-t
+    C-h k C-m-u
+    C-h k C-m-v
+13. C-g quits (clears) out any current commands and stops any commands that are currently running. It rusn the command keyboard-quit.
+    emacs commands used:
+    C-h k C-g   
+14. The yank function pastes the first entry from the kill-ring. It essentially acts as "paste" in "cut/copy" and then "paste." It is executed using C-y.
+    emacs commands used: 
+    C-h a yank
+15. ls -l lists total storageused, while dired in emacs lists total storageused and available storage. Dired also allows users to edit the directory while ls only lists it.
+    shell commands used for ls -l:
+    ls -l > output.txt
+    emacs output.txt
+
+    emacs commands used for dired:
+    M-x dired [delete any current directory text] /usr/bin M-<
+
+
+
+use man -k locale and find the right locale file
+3. Using find /usr/bin -name "?"r, where the find command finds files, in the specified directory /usr/bin, and then filter those files by name to contain any character (the "?") and then r. How each command works was then found using man [command].
+   (1)(maybe??)  ar is used to either create, modify, or extract from an archive file.
+   (2) tr is used to delete/replace characters. Filters are also available for deleting whitespace, digits only, alphabetic letters only, lowercase letters only, etc.
+   (3) pr takes in a text file and prepares it for printing by paginating it and modifying the columns as needed.
+
+4. First, cd to /usr/bin. Then, use ls -l | grep emacs to find all files related to emacs, and then we can see that what is actually executed is /etc/alternatives/emacs
+
+5. gcc has a version of 4.9.2, while /usr/bin/gcc has a version of 4.4.7. This is beacuse gcc (standalone) is in /usr/local/cs/bin, so it is actually a different file from the gcc in /usr/bin/gcc. I used gcc --version and /usr/bin/gcc --version to get the version numbers.
+
+6. The command u+sx,o-w means to set the user ID and add executable permissions for the user, and then remove write permissions from the other group of users.
+
+7. I used the command find /usr/local/cs -type d -mtime -28 to find all directories (-type d) modified in the last 28 days (-atime -28).
+
+8. There are 20 symbolic links. I used ls -la | grep "\->" | wc, where ls -la is used to list all files, and then grep "/->" is used to filter out only files with name containing "/->", which denotes a symbolic link, and then wc counts the number lines/words/characters.
+
+9. ls /usr/lib64 -lt | tail -n 1
+
+10. It gets its data from /usr/lib/locale, found man 7 locale
+
+11. C-h a downcase, downcase-dwim, downcase-region, downcase-word
+
+12. , , , , 
+
+13. The C-g command clears out any partially typed command (essentially cancelling it). It also stops any commands that are currently running.
+
+
+15. The ls -l command lists all files and colors exectuables green and symbolic links green/blue, while dired in emacs only colors symbolic links blue. The output is the same content-wise. dired in emacs is executed using C-x d, and then typing in the directory.

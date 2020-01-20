@@ -1,0 +1,272 @@
+    'Ae
+    Ahi
+    Ahiahi 
+    Ahu
+    'Ahu
+    Ahupua'a
+    Ai
+    Aia
+    Aia i hea
+    'Aina
+    Akamai
+    'Akau
+    Aku
+    Ali'i
+    Aloalo
+    Aloha 
+    Ame
+    'Anakala 
+    'Anake
+    Aniani
+    'A'ole
+    'Apelila
+    'Apopo
+    Au
+    A'u
+    Auinala
+    'Aukake 
+    'Aumakua
+    Aumoe
+    Aupuni
+    Awakea
+    Ha'aha'a
+    Ha'awina
+    Hala
+    Hala-kahiki
+    Halau
+    Hale
+    Haleakala
+    Halemahina
+    Hana
+    Hanai
+    Hanau
+    Hapa
+    Hapai
+    Ha'ule lau
+    Haumana
+    Haumia
+    Hau'oli
+    He aha
+    He'e
+    Heiau
+    Hele
+    Hele aku
+    Hele mai
+    Helu
+    Hema
+    Hepekoma
+    Hikina
+    Himeni
+    Hoahanau
+    Hoaloha
+    Hola
+    Holoku
+    Honu
+    Ho'oilo
+    Ho'okipa
+    Ho'okupu
+    Ho'olaule'a 
+    Ho'olauna 'Ana
+    Ho'olele
+    Ho'olohe
+    Ho'oninau
+    Ho'oponopono
+    Hou
+    Hui
+    Hula
+    I'a
+    Ianuali
+    'Ili 'ili
+    'Ilio
+    Imu
+    Inehinei
+    Inoa
+    'Iole
+    Ipo
+    Iulai
+    Iune 
+    Iwi
+    Kahakai
+    Kahako
+    Kahawai
+    Kaho'olawe
+    Kahu
+    Kai
+    Ka'i
+    Kaikamahine
+    Kaikua'ana
+    Kaikuahine
+    Kaikunane
+    Kaka
+    Kakahiaka
+    Kako'o
+    Kakou
+    Kala
+    Kalani
+    Kalo
+    Kalua
+    Kama'aina
+    Kamaiki
+    Kanaka
+    Kanaka maoli
+    Kane
+    Kau wela
+    Kawa
+    Ke
+    Ke Akua
+    Keia la
+    Keiki
+    Keiki hanau o ka 'aina
+    Keiki kane
+    Kekemapa
+    Kekoa
+    Kekona
+    Kela 'apopo
+    Kepakemapa
+    Ki
+    Ki'i
+    Ki'ionioni
+    Ko
+    Koali
+    Kohala
+    Kokua 
+    Komohana
+    Kona
+    Ko'olau
+    Kou
+    Ko'u
+    Ku
+    Ku'ai
+    Kukakuka
+    Kukui
+    Kuleana
+    Kumu
+    Kumu nui
+    Kupulau
+    Kupuna
+    Kupuna kahiko
+    Kupuna kane
+    Kupuna wahine
+    La
+    La hanau
+    Lanai
+    Lani
+    La noa
+    Lanui 
+    Lapule
+    Laulima
+    Leka
+    Lele
+    Lomi lomi
+    Lono
+    Loulu
+    Lua 
+    Lua 'ole
+    Mahalo 
+    Mahina
+    Mahinahina
+    Mai
+    Ma'i
+    Mai kai
+    Maika'i
+    Maika'i 'ole
+    Ma'ima'i
+    Maka
+    Maka aniani
+    Makahiki
+    Makahiki Hou
+    Makai 
+    Makamaka
+    Makana
+    Makani
+    Make
+    Makemake
+    Makua
+    Makuahine
+    Makua kane
+    Malaki
+    Malama
+    Malihini
+    Mana
+    Mana'o
+    Mano
+    Maoli
+    Mau
+    Ma uka 
+    Mei
+    Mele
+    Menehune
+    Minuke
+    Moa
+    Moana
+    Moe
+    Moe moe
+    Moku
+    Momi
+    Mo'olelo
+    Na
+    Nai'a
+    Nana
+    Nani
+    Nene
+    Ninau
+    Oe
+    'Ohana
+    'Ohiki
+    'Okakopa 
+    'Okina
+    'Okole
+    'Ono
+    Ono 
+    O'o
+    'Opae
+    'Opae ula
+    'Opala
+    'Opihi
+    Oukou
+    'O wai
+    Pa
+    Pali
+    Pane
+    Paniolo
+    Papa
+    Pau
+    Pa'u 
+    Pea
+    Pehea
+    Pepeluali 
+    Pilialo
+    Pilikia
+    Pilikua
+    Pinao
+    Po
+    Po-
+    Po'aha
+    Po'akahi
+    Po'akolu
+    Po'alima 
+    Po'alua
+    Po'aono
+    Pohaku
+    Poho
+    Pokani
+    Pono
+    Popopo
+    Pua
+    Pua'a
+    Pueo
+    Puka
+    Puka aniani
+    Pule
+    Pumehana
+    Pu'u
+    Ua
+    'Uhane
+    'Uku
+    'Ulu
+    Wa'a
+    Wahine
+    Wakea
+    Wapine
+    Wauke
+    Wiki

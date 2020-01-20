@@ -1,0 +1,118 @@
+Danning Yu
+305087992
+
+First I entered the emacs repository for CS 35L:
+
+cd ~eggert/src/gnu/emacs-CS-35L
+
+1. Using the following commands:
+man du
+du -a | sort -n -r | head -n 2
+find . -type f -exec du -a {} + | sort -n -r | head -n 10
+
+Output of 2nd command (after man du):
+520828  .
+358316  ./.git
+
+The second command (after man du) gives that the entire directory is 520828 bytes and that the
+./.git directory is 358316 bytes. Thus, the working files take up 520828 - 358316 = 162512 bytes,
+and the Git repository takes up 358316 bytes.
+
+The third command gives the following output:
+
+318152  ./.git/objects/pack/pack-24e56b1749b9320c560213d9045fa6cee42b4174.pack
+23876   ./.git/objects/pack/pack-24e56b1749b9320c560213d9045fa6cee42b4174.idx
+7888    ./.git/objects/info/commit-graph
+6836    ./.git/gitk.cache
+6736    ./test/manual/BidiCharacterTest.txt
+4400    ./leim/SKK-DIC/SKK-JISYO.L
+2508    ./admin/unidata/NormalizationTest.txt
+2280    ./ChangeLog.3
+1760    ./admin/unidata/UnicodeData.txt
+1696    ./admin/charsets/mapfiles/cns2ucsdkw.txt
+
+The pack files are large because they contain past versions of the emacs project, and because
+the emacs project has been going on for a long time (this repository's history dates back to the
+1990s), there are lots of old files. Also, there are most likely large binary blob files that take
+up a lot of space, and these files cannot be efficiently compressed.
+
+2. I used the following commands:
+git branch | wc -l
+git branch -r | wc -l
+The first command gave the number of local branches to be 176, and the second command gave the
+number of remote branches to be 177.
+
+3. Using the following command:
+git remote -v
+
+This displays one remote repository, called origin, located at
+https://git.savannah.gnu.org/git/emacs.git. It is used for both fetching and pushing.
+
+4. I used the following command:
+git branch --sort=-committerdate | head -n 10
+
+This gave the following output:
+master
+scratch/joaot/make-completion-at-point-function
+feature/windows-with-utils
+scratch/completion-api
+scratch/a-modest-completion-redesign-proposal
+scratch/fido-mode
+feature/gnus-select2
+feature/extend_face_id
+scratch/jit-lock-antiblink-cleaned-up
+emacs-26
+
+Each branch should also be prepended with refs/heads/ for the full branch name.
+
+5. Using the following command gives that there are 139583 commits on the master branch:
+git rev-list --count master
+
+6. Using the following command gives the total number of commits across all branches to be 143910:
+git rev-list --all --count
+
+Dividing the answer to #5 by this number gives 139583/143910, or approximately 96.99%.
+
+7. Using the following command gives the desired result, where the number in the first column is
+the number of commits and the entry in the second column is the author.
+
+git shortlog -sn master --since=2013.01.01 | head -n 10
+
+3691  Eli Zaretskii
+3647  Glenn Morris
+3605  Paul Eggert
+1806  Lars Ingebrigtsen
+1784  Stefan Monnier
+1571  Michael Albinus
+ 619  Dmitry Gutov
+ 576  Noam Postavsky
+ 471  Alan Mackenzie
+ 469  Juri Linkov
+
+8. Using gitk, I looked up the commits listed in the assignnment spec to create the following
+commit graph. Some branches and/or commits not shown for clarity.
+(Note: The graph is made up of 10 lines of text, each line having up to 150 characters)
+
+          977cd ->   ...      ...       -> 0c06b93 -> ... -> ... _     ...                   ...           ...           -> abcb2e6 -> ... -> 98ac36e
+	  ^                                ^                      \                                                         ^                 ^
+         /                                /                        V                                                       /                 /
+4ea37c _/                            ..._/                         ... -> 820739 _                                        /                 /
+	\                            ^                                            \                                      /                 / 
+	 V                          /                                              V                                    /                 /
+	 625cee -> ... -> 5490cee _/	                                           00e4e3e _                           /                 /
+                                                                                            \                         /                 /
+											     V                       /                 /   
+											     ... -> ... -> 49cd561 _/    ...  -> ... _/
+
+Basically, what is happening is that after a change to "Cope better with C++..." (commit 4ea37c),
+this change is merged into the master branch and emacs is incremented to version
+27.0.50 (commit 977cd), and then an emacs 26 release branch is started (commit 625cee). On this
+branch, changes are made such as adding a lisp variable (5490ccc), and then this change is
+eventually merged into the master branch. Then, a new branch is created where eventually, a change
+is made to doc/emacs/display... (commit 820739), and then from this commit, a branch is created to
+fix an undecorated frame resizing issue (commit 004e3e), then another branch that eventually has a
+change in test/lisp/tramp-tests.el (commit 49cd561). This final branch is merged into the master
+branch (commit abcb2e), and then after a couple more changes are made on the branch that had
+commit 49cd561, it is again merged into the master branch (commit 98ac35e). Essentially, what is
+happening is emacs was incremented to version 27, and then changes/updates are being made on the
+emacs 26 release branch before being merged with the main branch (representing emacs version 27). 

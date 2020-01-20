@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+read -d '' allCommands
+echo "$allCommands"
+for c in $allCommands; do
+	# echo 'ldd for' "$c"
+	path="/usr/bin/"
+	path+="$c"
+	ldd "$path"
+done

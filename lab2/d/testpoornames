@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# test script for poornames
+
+~/cslab/d/poornames
+~/cslab/d/poornames -r
+~/cslab/d/poornames -s
+~/cslab/d/poornames d/DNE
+~/cslab/d/poornames ~/cslab
+~/cslab/d/poornames -r ~/DNE
+~/cslab/d/poornames arg1 arg2
+~/cslab/d/poornames -r ~/cslab
+~/cslab/d/poornames ~/Desktop
+~/cslab/d/poornames -r ~/Desktop

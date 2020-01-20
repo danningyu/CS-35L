@@ -1,0 +1,109 @@
+#!/bin/bash
+
+#Danning Yu
+#305087992
+#Recursive version
+
+#####################################
+### Read in arguments and options ###
+#####################################
+
+recursive_mode=0 #false by default
+directory=. #default directory
+dir_in_second=0 #false by default
+
+if [ "$1" ]; then
+  case "$1" in
+  -r)
+    recursive_mode=1
+    dir_in_second=1
+    echo '  Recursive flag set'
+    ;;
+
+  -?*)
+    echo '  ' "$1" ': Invalid option, -r only, EXITING' >&2
+    exit 1
+    ;;
+  *)
+    echo '  Possible directory name: ' "$1"
+    directory="$1"
+    ;;
+  esac
+fi
+
+if [ "$2" ] && [ "$dir_in_second" == 1 ]
+then
+  directory="$2"
+  echo '  Directory set to ' "$directory"
+fi
+
+if [ "$directory" ]; then
+  if [ ! -d "$directory" ] || [ -L "$directory" ]; then
+  echo 'Directory does not exist or is not a directory, EXITING' >&2
+  exit 1
+  fi
+fi
+
+###########################
+### Code execution here ###
+###########################
+
+set -f
+IFS='
+'
+
+if [ "$recursive_mode" == 0 ]; then
+  echo 'Non-recursive mode'
+  reqs_1_to_4=`find "$directory" -maxdepth 1 | \
+    grep -v -E '^(.*)\/([a-zA-Z_\n][a-zA-Z._-]{0,13})$|^\.\.$|^\.$'` 
+  req5=`find "$directory" -maxdepth 1 | sort -f | uniq -iD`
+  for $dir in reqs_1_to_4
+  do
+   echo "$dir"
+  done
+  echo 'END'
+  total=`echo "$reqs_1_to_4" && echo "$req5"`
+  total_sorted=`echo "$total" | sort -u`
+  for dir in $total_sorted
+  do
+    #if [ "$dir" != "$directory" ]; then
+      if [ -d "$dir" ]; then
+          echo "$dir"/
+    else
+        echo "$dir"
+      fi
+    #fi
+  done
+  echo 'DONE'
+fi
+
+if [ "$recursive_mode" == 1 ]; then
+  echo 'Recursive mode'
+  reqs_1_to_4=`find "$directory" | \
+    grep -v -E '^(.*)\/([a-zA-Z_][a-zA-Z._-]{0,13})$|^\.\.$|^\.$'`
+  req5_all=
+  for dir1 in `find "$directory"`
+  do
+    if [ -d "$dir1" ]; then
+      req5=`find "$dir1" -maxdepth 1 | sort -f | uniq -iD`
+      if [ "$req5" ]; then    
+         req5_all=`echo "$req5_all" && echo "$req5"`
+      fi
+    fi
+  done
+  
+  total=`echo "$reqs_1_to_4" && echo "$req5_all"`
+  total_sorted=`echo "$total" | sort -u`
+  for dir in $total_sorted
+  do
+    #if [ "$dir" != "$directory" ]; then
+      if [ -d "$dir" ]; then
+        echo "$dir"/
+      else
+        echo "$dir"
+      fi
+    #fi
+  done
+fi
+
+IFS=''

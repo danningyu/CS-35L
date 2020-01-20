@@ -1,0 +1,15 @@
+1 'a'ole
+2 'ahu
+3 'aina
+4 'akau
+5 'ana
+6 'anakala
+7 'anake
+8 'apelila
+9 'apopo
+10 'aukake
+11 'aumakua
+12 'awa
+13 'ili
+14 'ilio
+15 'iole

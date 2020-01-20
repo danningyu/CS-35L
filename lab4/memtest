@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat testinput.txt | valgrind --tool=memcheck --leak-check=yes ./sfrob

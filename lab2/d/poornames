@@ -1,0 +1,56 @@
+#!/bin/bash
+
+#Danning Yu
+#305087992
+#Non-recursive version: no -r flag
+
+#####################################
+### Read in arguments and options ###
+#####################################
+
+recursive_mode=0 #false by default
+directory=. #default directory
+dir_in_second=0 #false by default
+
+if [ "$1" ]; then
+    directory="$1"
+fi
+
+if [ "$2" ]
+then
+  echo "Only 1 directory to analyze allowed" >&2
+  exit 1
+fi
+
+
+if [ "$directory" ]; then
+  if [ ! -d "$directory" ] || [ -L "$directory" ]; then
+  echo 'Directory does not exist or is not a directory, EXITING' >&2
+  exit 1
+  fi
+fi
+
+###########################
+### Code execution here ###
+###########################
+
+set -f
+IFS='
+'
+
+if [ "$recursive_mode" == 0 ]; then
+  # echo 'Non-recursive mode'
+  reqs_1_to_4=`find "$directory" -maxdepth 1 | \
+    grep -v -E '^(.*)\/([a-zA-Z_\n][a-zA-Z._-]{0,13})$|^\.\.$|^\.$'` 
+  req5=`find "$directory" -maxdepth 1 | sort -f | uniq -iD`
+  total=`echo "$reqs_1_to_4" && echo "$req5"`
+  total_sorted=`echo "$total" | sort -u`
+  for dir in $total_sorted
+  do
+      if [ -d "$dir" ]; then
+          echo "$dir"/
+    else
+        echo "$dir"
+      fi
+  done
+fi

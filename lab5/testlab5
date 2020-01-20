@@ -1,0 +1,143 @@
+#!/bin/bash
+
+#test ter2b
+
+echo 'Testing case 1b'
+test1=`echo 'abc' | ./tr2b abc ABC`
+if [ ! "$test1" == "ABC" ]; then
+  echo 'FAILED test 1b'
+fi
+
+echo 'Testing case 2b'
+test2=`echo 'abc' | ./tr2b abbc ABCC`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 2b'
+fi
+
+echo 'Testing case 3b'
+test3=`echo 'abc' | ./tr2b abcd 123`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 3b'
+fi
+
+echo 'Testing case 4b'
+test4=`echo 'abcdefgh' | ./tr2b bcdefgh 1234567`
+if [ ! "$test4" == "a1234567" ]; then
+  echo 'FAILED test 4b'
+fi
+
+echo 'Testing case 5b'
+test5=`./tr2b`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 5b'
+fi
+
+echo 'Testing case 6b'
+test6=`./tr2b`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 6b'
+fi
+
+echo 'Testing case 7b'
+test7=`./tr2b abc`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 7b'
+fi
+
+echo 'Testing case 8b'
+test8=`./tr2b abc def ghi`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 8b'
+fi
+
+echo 'Testing case 9b'
+test9=`echo 'rest' | ./tr2b  ABC`
+if [ ! "$test9" == "ABCrest" ]; then
+  echo 'FAILED test 9b'
+fi
+
+#test tr2u
+
+echo 'Testing case 1u'
+test1=`echo 'abc' | ./tr2u abc ABC`
+if [ ! "$test1" == "ABC" ]; then
+  echo 'FAILED test 1u'
+fi
+
+echo 'Testing case 2u'
+test2=`echo 'abc' | ./tr2u abbc ABCC`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 2u'
+fi
+
+echo 'Testing case 3u'
+test3=`echo 'abc' | ./tr2u abcd 123`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 3u'
+fi
+
+echo 'Testing case 4u'
+test4=`echo 'abcdefgh' | ./tr2u bcdefgh 1234567`
+if [ ! "$test4" == "a1234567" ]; then
+  echo 'FAILED test 4u'
+fi
+
+echo 'Testing case 5u'
+test5=`./tr2u`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 5u'
+fi
+
+echo 'Testing case 6u'
+test6=`./tr2u`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 6'
+fi
+
+echo 'Testing case 7u'
+test7=`./tr2u abc`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 7u'
+fi
+
+echo 'Testing case 8u'
+test8=`./tr2u abc def ghi`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test 8u'
+fi
+
+echo 'Testing case 9u'
+test9=`echo 'rest' | ./tr2u  ABC`
+if [ ! "$test9" == "ABCrest" ]; then
+  echo 'FAILED test 9u'
+fi
+
+echo 'Testing sfrobu case 1'
+testsfrob1=`./sfrobu -badoption < testinput.txt`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test sfrobu1'
+fi
+
+echo 'Testing sfrobu case 2'
+testsfrob2=`./sfrobu -f -extra < testinput.txt`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test sfrobu2'
+fi
+
+echo 'Testing sfrobu case 3'
+testsfrob3=`./sfrobu -f -f < testinput.txt`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test sfrobu3'
+fi
+
+echo 'Testing sfrobu case 4'
+testsfrob4=`./sfrobu a < testinput.txt`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test sfrobu4'
+fi
+
+echo 'Testing sfrobu case 5'
+testsfrob5=`./sfrobu -fbad < testinput.txt`
+if [ ! "$?" == 1 ]; then
+  echo 'FAILED test sfrobu5'
+fi

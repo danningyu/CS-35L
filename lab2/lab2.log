@@ -1,0 +1,85 @@
+Danning Yu
+305087992
+
+Lab:
+Checked locale - not C locale, so used export LC_ALL='C' to change it.
+Verified that it changed by using locale again afterwards.
+
+Then used sort /usr/share/dict/words > ~/words
+
+To extract HTML page:
+wget [CS35L assignment 2 link], where link was:
+https://web.cs.ucla.edu/classes/fall19/cs35L/assign/assign2.html
+
+tr commands: used cat assign2.html | [tr command] > output.txt
+1) tr -c 'A-Za-z' '[\n*]': 
+Deletes all lines that don't contain A-Z or a-z.
+Replaces them with a newline.
+
+2)tr -cs 'A-Za-z' '[\n*]':
+Adding -s option consolidates consecutive repeated newlines into one newline.
+This makes the output more readable.
+
+3) tr -cs 'A-Za-z' '[\n*]' | sort: 
+This sorts the lines of what tr produces. 
+Capital letters come before lowercase letters and the sorting is alphabetical.
+
+4) tr -cs 'A-Za-z' '[\n*]' | sort -u:
+Aadding the -u options eliminates any duplicate words.
+
+5) tr -cs 'A-Za-z' '[\n*]' | sort -u | comm - words: 
+Compare output of command #4  to words. Column 1 for words unique to tr output.
+Column 2 is for words unique to words, column 3 is for words in both files.
+
+6) tr -cs 'A-Za-z' '[\n*]' | sort -u | comm -23 - words:
+This command outputs only words unique to the output of the 4th tr command.
+The -23 flag eliminates the 2nd and 3rd columns.
+
+To make hwords:
+1) Get HTML file
+wget https://www.mauimapp.com/moolelo/hwnwdshw.htm  # get HTML file
+mv hwndshw.htm hwordsUnfinished  # change file name
+vim buildwords
+
+2) Create script
+grep '.*</td>' | \ #isolate lines with td tags only
+sed 's/<[^>]*>//g' | \ #get rid of all HTML comments
+tr "\`" "\'" | \ #replace ` with '
+tr "A-Z" "a-z" | \ #all uppercase to lowercase
+sed 's/^ *//g' | \ #delete leading whitespace in lines
+sed 's/?//g' | \ #delete all ? characters
+grep -E "^[pk'mnwlhaeiou ]+$" | \ #delete all lines with non-hawaiian chars
+sed 's/ /\n/g' | \ #replace all spaces with newlines
+grep -E -v '^$' | \ #delete all blank lines
+sort -u #sort and eliminate any duplicates
+
+3) modify permissions and run script
+chmod u+x buildwords
+cat hwordsUnfinished | ./buildwords > hwords
+
+ENGLISHCHECKER:
+cat assign2.html | tr -cs 'A-Za-z' '[\n*]' | tr '[:upper:]' '[:lower:]' | \
+sort -u | comm -23 - words
+
+Then pipe to wc -w to get # of words, or to badEng.txt to save as text file.
+
+HAWAIIANCHECKER:
+sed 's/<[^>]*>//g' | tr "\`" "\'" | tr '[:upper:]' '[:lower:]' | \
+tr -cs "A-Aa-z'" '[\n*]' | sort -u | comm -23 - hwords
+
+Then pipe to wc -w to get # of words, or to badHI.txt to save as text file.
+
+Distinct misspelled words of assignment page using ENGLISHCHECKER: 37 words.
+(Note: converted all letters in assignment page to lowercase).
+
+Distinct misspelled words using HAWAIIANCHECKER: 515 words
+
+Number of distinct words that ENGLISHCHECKER reports as misspelled but 
+HAWAIIANCHECKER does not: 2 words
+Examples: lau, wiki
+comm -12 used instead of -23 to get the number of matches.
+
+Number of distinct words that HAWAIIANCHECKER reports as misspelled but
+ENGLISHCHECKER does not: 477 words
+Examples: your, yourself
+comm -12 used instead of -23 to get the number of matches.

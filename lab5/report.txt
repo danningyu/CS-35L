@@ -1,0 +1,156 @@
+Danning Yu
+305087992
+
+----------
+Lab Portion (lab.txt):
+----------
+
+First, I wrote tr2b.c as specified, using getchar to read in bytes from
+stdin and then ouputting them to stdout using putchar. These functions 
+come from stdio.h. I used an array of size 256 to map one character to 
+another for transliteration purposes, essentially a hash table. If 
+there were an incorrect number of arguments, duplicate elements in set 
+1, or if the length of set 1 was not equal to the length of set 2, I 
+reported the error to stderr and exited with exit code 1. Also, if 
+errors occurred during the reading or printing process, I reported the
+error to stderr and exited with exit code 1. When printing, I checked
+if the array contained a conversion from one character to another. If
+so, print out the converted character; otherwise, print out the 
+original character.
+
+Then, I wrote tr2u.c, with the only change being using read and write
+from unistd.h instead of getchar and putchar. These functions are
+system calls. Instead of buffered reading, I forced the program to read
+and write bytes 1 at a time. The possible error conditions were the
+same as for tr2b.c.
+
+I then got a file with a size of 5,000,000 bytes using:
+head --bytes=5000000 /dev/urandom > bigfile.txt
+
+Then, I issued the following command to invoke tr2b for copying from one 
+file to another.
+
+strace -c ./tr2b 'ABC' 'abc' < bigfile.txt > output1.txt
+
+The strace command reported a total of 1,250 system calls for tr2b.
+
+Then I ran the same command, but with tr2b changed to tr2u:
+
+strace -c ./tr2u 'ABC' 'abc' < bigfile.txt > output2.txt
+
+The number of system calls for tr2u is 10,000,026, which is dramatically
+higher than that of tr2b (1,250 calls). As expected, a 5 million byte file
+results in roughly 5 million calls each for write and read, as I am reading
+and writing 1 byte at a time.
+
+Then, I tested writing to terminal:
+strace -c ./tr2b 'ABC' 'abc' < bigfile.txt
+strace -c ./tr2u 'ABC' 'abc' < bigfile.txt
+
+This gave a total of 20,495 system calls for tr2b and 1,000,026 calls for
+tr2u. The number of system calls dramatically increased for tr2b for writing
+to to the terminal possibly because the terminal buffer can hold less before
+it must display all its contents. The number of system calls for tr2u stayed
+the same.
+
+Timing each of the 4 commands I made earlier:
+
+1) time ./tr2b 'ABC' 'abc' < bigfile.txt > output3.txt
+2) time ./tr2u 'ABC' 'abc' < bigfile.txt > output4.txt
+3) time ./tr2b 'ABC' 'abc' < bigfile.txt
+4) time ./tr2u 'ABC' 'abc' < bigfile.txt
+
+The commands give the following time outputs:
+
+1)
+real    0m0.271s
+user    0m0.220s
+sys     0m0.008s
+
+2)
+real    0m12.537s
+user    0m3.225s
+sys     0m9.269s
+
+3)
+real    0m5.915s
+user    0m0.271s
+sys     0m0.107s
+
+4)
+real    0m12.326s
+user    0m3.300s
+sys     0m8.298s
+
+As expected, tr2b is much faster than tr2u when reading in and writing out
+data. When the output is the terminal window instead, tr2b loses a bit of
+its advantage, due to the increased number of system calls needed when
+writing to the terminal. However, it is still faster. The time it takes to
+run tr2u for writing to a file and to the terminal is very similar, which
+makes sense, as the same number of system calls is made.
+
+Overall, we can see a correlation between the number of system calls and how
+long it takes a program to run.
+
+
+----------
+Homework Portion (report.txt):
+----------
+
+Running sfrob and sfrobu with various line counts:
+
+	0 lines			100 lines	
+sfrob	real 	0m0.003s	real    0m0.002s
+	user    0m0.003s	user    0m0.002s
+	sys     0m0.001s	sys     0m0.000s
+
+sfrobu 	real    0m0.011s	real    0m0.013s
+	user    0m0.004s	user    0m0.003s
+	sys     0m0.007s	sys     0m0.010s
+
+	10,000 lines		1,000,000 lines
+sfrob	real 	0m0.006s	real    0m0.549s
+	user    0m0.004s	user    0m0.533s
+	sys     0m0.001s	sys     0m0.015s
+
+sfrobu 	real    0m0.059s	real    0m7.733s
+	user    0m0.034s	user    0m3.786s
+	sys     0m0.025s	sys     0m3.947s
+
+For sfrob, the correspondence between # of lines (N) and runtime (t) is
+roughly t = (9.15E-8)(NlogN), where logN here indicates base 10.This makes
+sense, as sfrob uses quicksort to sort the lines, and quicksort has a typical
+O(NlogN) runtime. 
+
+For sfrobu, the runtime is also dependent on NlogN: t = (1.28E-6)(NlogN),
+which makes sense because sfrobu uses quicksort as well. However, due to its
+use of sys calls, it has a higher constant factor (1.28E-6 versus 9.15E-8),
+causing it to be slower.
+
+Using the strace command, malloc, realloc, and free seem to call the following
+library functions:
+
+malloc: Either brk or mmap, depending on if a small block of new memory is
+allocated (brk is used) or a large block of memory is allocated (mmap used).
+
+If brk is used, its argument is an address location, which should be the new
+end of the program data segment. If NULL is used as the address location, it
+returns the current location of the program break, which can then be used
+to calculate the new desired location.
+
+If mmap is used, it takes in a hint to where the block of memory should be 
+mapped (can be NULL, in which case the kernel decides where to place the 
+block of memory), the desired size of the block of memory, the 
+read/write/execute/access permissions of this memory segment, flags to 
+determine if this memory mapping should be visible to other processes, the 
+file to map this block of memory to (-1 in our case), and any offset, if 
+needed (0 in our case). For sfrobu, the rwx flag is 
+PROT_READ|PROT_WRITE and the mapping flag is MAP_PRIVATE|MAP_ANONYMOUS.
+
+realloc: mmap is used. Everything is the same as what was described for mmap
+above, except for the size: it is the updated desired size of the block of
+memory. All other arguments remain the same.
+
+free: munmap is used. It takes in an address to the block of memory to free
+and how bytes should be freed. It then returns 0 upon success.
+

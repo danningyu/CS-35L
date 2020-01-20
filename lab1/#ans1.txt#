@@ -1,0 +1,92 @@
+Danning Yu
+305087992
+Lab
+
+1. man -k
+   commands used:
+   man man (and then scrolled through man page)
+2. /usr/local/cs/bin/mv
+   /usr/local/cs/bin/cp
+   commands used:
+   which mv
+   which cp
+3. ar: allows for creation and manipulation of archives, as well as extracting from them.
+   tr: used to translating or deleting letters, such as from lowercase to uppercase.
+   pr: formats files by adding pages and columns to make it look better when printed
+   commands used:
+   find /usr/bin -name "?"r
+   man ar
+   man tr
+   man pr
+4. /usr/bin/emacs-24.3
+   commands used:
+   readlink -f /usr/bin/emacs
+   man readlink
+5. /usr/bin/gcc: 4.8.5
+   gcc: 9.2.0
+   commands used:
+   gcc --version
+   /usr/bin/gcc --version
+   Different because gcc is actually in /usr/local/cs/bin, so it is distinct from /usr/bin/gcc.
+6. chmod u+sx,o-w: u+sx part means to set the user ID for the user (temporarily giving it same permissions as superuser), which will allow execute permissions to be added. The o-w part means to remove write permissions from other users.
+   commands used:
+   man chmod
+7. First 5 entries:
+   /usr/local/cs
+   /usr/local/cs/src/bison
+   /usr/local/cs/src/bison/RCS
+   /usr/local/cs/src/gnuplot
+   /usr/local/cs/src/gnuplot/RCS
+   There are a total of 175 directories with this property.
+   commands used:
+   man find
+   man wc
+   find /usr/local/cs -type d -mtime -28
+   find /usr/local/cs -type d -mtime -28 | wc
+8. 303
+   commands used:
+   which find
+   cd /usr/bin
+   man grep
+   man wc
+   ls -la | grep "\->" | wc -l
+   Note: done on lnxsrv09
+9. librom1394.so.0.3.0
+   commands used:
+   ls /usr/lib64 -lta
+   man ls
+10. It gets its data from /usr/lib/locale/locale-archive
+    commands used:
+    man locale
+    man -k locale | grep -v -e "::" (grep to filter out results)
+    man localedef (then read through man localedef)
+11. downcase-dwim
+    downcase-region
+    downcase-word
+    emacs commands used:
+    emacs
+    C-h a downcase
+12. C-M-r does a backwards regexp incremental search (isearch-backward-regexp)
+    C-M-s does a forwards incremental regexp search (isearch-forwrad-regexp)
+    C-M-t transposes two expressions (transpose-sexps)
+    C-M-u moves up one level of parentheses (backward-up-list)
+    C-M-v scrolls the next window down in emacs if one exists (scroll-other-window)
+    emacs commands used:
+    C-h k C-m-r
+    C-h k C-m-s
+    C-h k C-m-t
+    C-h k C-m-u
+    C-h k C-m-v
+13. C-g quits (clears) out any current commands and stops any commands that are currently running. It rusn the command keyboard-quit.
+    emacs commands used:
+    C-h k C-g   
+14. The yank function pastes the first entry from the kill-ring. It essentially acts as "paste" in "cut/copy" and then "paste." It is executed using C-y.
+    emacs commands used: 
+    C-h a yank
+15. ls -l lists total storage used, while dired in emacs lists total storageused and available storage. Dired also allows users to edit the directory while ls only lists it.
+    shell commands used for ls -l:
+    ls -l > output.txt
+    emacs output.txt
+
+    emacs commands used for dired:
+    M-x dired [delete any current directory text] /usr/bin M-<
