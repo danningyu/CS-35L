@@ -13,3 +13,16 @@ Files for CS 35L, taken Fall 2019.
 8. SSH setup and use in applications
 9. Change management spelunking and implementation
 10. Research and development in computing
+
+| Lab #  | Score |
+|--------|-------|
+| Lab 1  | 100   |
+| Lab 2  | 100   |
+| Lab 3  | 93.34 |
+| Lab 4  | 90    |
+| Lab 5  | 100   |
+| Lab 6  | 100   |
+| Lab 7  | 95.21 |
+| Lab 8  | 100   |
+| Lab 9  | 87.2  |
+| Lab 10 | 100   |
